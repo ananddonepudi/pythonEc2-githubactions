@@ -3,8 +3,8 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route("/")
-def home():
-    return "Hello from EC2 via GitHub Actions updated!"
+def hello():
+    return "Hello from Python Docker GitHub Actions!"
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+    app.run(host="0.0.0.0", port=5000)
