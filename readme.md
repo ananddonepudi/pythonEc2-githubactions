@@ -25,3 +25,25 @@ sudo systemctl daemon-reload
 sudo systemctl enable python-app
 sudo systemctl start python-app
 
+-----------------------------------
+| Secret            | Value                   |
+| ----------------- | ----------------------- |
+| `DOCKER_USERNAME` | Docker Hub username     |
+| `DOCKER_PASSWORD` | Docker Hub access token |
+| Secret                | Value                   |
+| --------------------- | ----------------------- |
+| `AZURE_CLIENT_ID`     | Service principal appId |
+| `AZURE_TENANT_ID`     | Tenant ID               |
+| `AZURE_CLIENT_SECRET` | SP secret               |
+| `ACR_NAME`            | e.g. `myadregistry`    |
+| Secret                  | Value              |
+| ----------------------- | ------------------ |
+| `AWS_ACCESS_KEY_ID`     | IAM access key     |
+| `AWS_SECRET_ACCESS_KEY` | IAM secret         |
+| `AWS_REGION`            | e.g. `ap-south-1`  |
+| `ECR_REPOSITORY`        | e.g. `python-demo` |
+
+create acr
+az login
+az ad sp create-for-rbac  --name github-actions-acr   --role acrpush  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RG_NAME>/providers/Microsoft.ContainerRegistry/registries/<ACR_NAME>
+
